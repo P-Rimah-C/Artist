@@ -1,0 +1,21 @@
+﻿@model ChangeUserViewModel
+@{
+    int i = 0;
+}
+<form method="post">
+    @foreach (var role in Model.AllRoles)
+    {
+        i++;
+        @if (Model.UserRoles.Contains(role))
+        {
+            <input type="checkbox" name="role-@i" checked />
+        }
+        else
+        {
+            <input type="checkbox" name="role-@i" />
+        }
+        <label for="role-@i">@role</label>
+        <br />
+    }
+    <input type="submit" class="btn btn-primary"/>
+</form>

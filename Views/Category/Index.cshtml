@@ -1,0 +1,48 @@
+@using Microsoft.AspNetCore.Identity
+@model IEnumerable<Asernatat_3.Models.Category>
+@inject SignInManager<IdentityUser> SignInManager
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+@if (SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+{   
+    <p> <a asp-action="Create">Create New</a></p>
+}
+@if (Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <a asp-controller="Art" asp-action="Index" asp-route-id="@item.Id"> @Html.DisplayFor(modelItem => item.Name)</a>
+                    </td>
+                    <td>
+                        @if (SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+                        {
+                            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> <span>|</span>
+                            <a asp-action="Details" asp-route-id="@item.Id">Details</a> <span>|</span>
+                            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a> <span>|</span>
+                            <a asp-controller="Art" asp-action="Create" asp-route-id="@item.Id">Create some arts</a>
+                        }
+                    </td> 
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <h3>No items matching your query</h3>
+}

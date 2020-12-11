@@ -20,7 +20,8 @@ namespace Asernatat_3.Areas.Identity
                         context.Configuration.GetConnectionString("AuthDataContextConnection")));
 
                 services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = false)
-                    .AddEntityFrameworkStores<AuthDataContext>();
+                     .AddRoles<IdentityRole>()
+                     .AddEntityFrameworkStores<AuthDataContext>();
             });
         }
     }

@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -119,7 +121,6 @@
                 .btn-outline-mycolor:not(:disabled):not(.disabled).active:focus, .btn-outline-mycolor:not(:disabled):not(.disabled):active:focus, .show > .btn-outline-mycolor.dropdown-toggle:focus {
                     box-shadow: 0 0 0 .2rem rgba(255,193,7,.5)
                 }
-
     </style>
 </head>
 <body>
@@ -136,7 +137,7 @@
                 <div class="row justify-content-end mr-5">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item px-3 active">
-                            <a class="nav-link color-links" asp-area="" asp-controller="Home" asp-action="Index">
+                            <a class="nav-link color-links" asp-area="" asp-controller="UserManagement" asp-action="Index">
                                 Home
                                 <span class="sr-only">
                                     (current)
@@ -144,14 +145,23 @@
                             </a>
                         </li>
                         <li class="nav-item px-3">
-                            <a class="nav-link color-links" asp-area="" asp-controller="" asp-action="">
+                            <a class="nav-link color-links" asp-area="" asp-controller="Category" asp-action="Index">
                                 Theme
                             </a>
                         </li>
                         <li class="nav-item px-3">
-                            <a class="nav-link color-links" asp-area="" asp-controller="" asp-action="">
-                                To order
-                            </a>
+                            @if (SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+                            {
+                                <a class="nav-link color-links" asp-area="" asp-controller="Order" asp-action="Index">
+                                    To order
+                                </a>
+                            }
+                            else
+                            {
+                                <a class="nav-link color-links" asp-area="" asp-controller="Order" asp-action="Create">
+                                    To order
+                                </a>
+                            }
                         </li>
                         <li class="nav-item px-3">
                             <partial name="_LoginPartial" />
