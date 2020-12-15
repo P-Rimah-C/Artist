@@ -4,47 +4,43 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Email)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Prise)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Time)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Prise)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Time)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+<div class="col" style="max-width: 20%"></div>
+<div class="col myy-colorr border-left border-right my-border" style="max-width: 60%; min-height: 600px;">
+    <div class="row">
+        <div class="col m-3">
+            @if (Model.Any())
+            {
+                <table class="table table-borderless">
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr class="border-top" style="border-color: black !important;">
+                                <td style="color: black !important;">
+                                    @Html.DisplayFor(modelItem => item.Name)
+                                </td>
+                                <td style="color: black !important;">
+                                    @Html.DisplayFor(modelItem => item.Email)
+                                </td>
+                                <td style="color: black !important;">
+                                    @Html.DisplayFor(modelItem => item.Prise)
+                                </td>
+                                <td style="color: black !important;">
+                                    @Html.DisplayFor(modelItem => item.Time)
+                                </td>
+                                <td>
+                                    <a  class="my-exampl" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            }
+            else
+            {
+                <h3>No items matching your query</h3>
+            }
+        </div>
+    </div>
+</div>
+<div class="col" style="max-width: 20%"></div>

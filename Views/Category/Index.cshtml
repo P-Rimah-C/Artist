@@ -4,45 +4,74 @@
 @{
     ViewData["Title"] = "Index";
 }
+<div class="col" style="max-width: 20%"></div>
+<div class="col myy-colorr border-left border-right my-border" style="max-width: 60%; min-height: 600px;">
+    <div class="row">
+        <div class="col m-3">
+            <div>
+                @if (SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+                {
+                    <tr>
+                        <td class="p-1 pl-2">
+                            <div class="col">
+                                <a class="my-exampl text-decoration-none" asp-action="Create">Create New</a>
+                            </div>
+                        </td>
+                    </tr>
+                }
+                <div class="row no-gutters">
+                    @if (Model.Any())
+                    {
+                        <table class="table table-borderless">
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
 
-<h1>Index</h1>
-@if (SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
-{   
-    <p> <a asp-action="Create">Create New</a></p>
-}
-@if (Model.Any())
-{
-    <table class="table">
-        <thead>
-            <tr>
-                <th>
-                    @Html.DisplayNameFor(model => model.Name)
-                </th>
-                <th></th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var item in Model)
-            {
-                <tr>
-                    <td>
-                        <a asp-controller="Art" asp-action="Index" asp-route-id="@item.Id"> @Html.DisplayFor(modelItem => item.Name)</a>
-                    </td>
-                    <td>
-                        @if (SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
-                        {
-                            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> <span>|</span>
-                            <a asp-action="Details" asp-route-id="@item.Id">Details</a> <span>|</span>
-                            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a> <span>|</span>
-                            <a asp-controller="Art" asp-action="Create" asp-route-id="@item.Id">Create some arts</a>
-                        }
-                    </td> 
-                </tr>
-            }
-        </tbody>
-    </table>
-}
-else
-{
-    <h3>No items matching your query</h3>
-}
+                                        @if (SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+                                        {
+                                            <a asp-controller="Art" asp-action="Index" asp-route-id="@item.Id" class="text-decoration-none">
+                                                <div class="col border rounded my-border worlds">
+                                                    <table class="table table-borderless" style="margin-bottom: 0px; color: #000000 !important;">
+                                                        <tr>
+                                                            <td>
+                                                                <a class="my-exampl"> @Html.DisplayFor(modelItem => item.Name)</a>
+                                                            </td>
+                                                            <td>
+                                                                <div class="float-right">
+                                                                    <a class="my-exampl" asp-action="Edit" asp-route-id="@item.Id">Edit</a>
+                                                                    <span>|</span>
+                                                                    <a class="my-exampl" asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                                                                    <span>|</span>
+                                                                    <a class="my-exampl" asp-controller="Art" asp-action="Create" asp-route-id="@item.Id">Create some arts</a>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    </table>
+                                                </div>
+                                            </a>
+                                        }
+                                        else
+                                        {
+                                            <a asp-controller="Art" asp-action="Index" asp-route-id="@item.Id" class="text-decoration-none">
+                                                <div class="col border rounded my-border worlds">
+                                                    <span class="social-inner my-exampl"> @Html.DisplayFor(modelItem => item.Name)</span>
+                                                </div>
+                                            </a>
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                        </table>
+                    }
+                    else
+                    {
+                        <h3>No items matching your query</h3>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col" style="max-width: 20%"></div>
+

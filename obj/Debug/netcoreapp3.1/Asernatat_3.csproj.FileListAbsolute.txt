@@ -188,7 +188,6 @@ D:\My project\Programming language\C#\Asernatat_3\obj\Debug\netcoreapp3.1\Razor\
 D:\My project\Programming language\C#\Asernatat_3\obj\Debug\netcoreapp3.1\Razor\Areas\Identity\Pages\_ViewImports.cshtml.g.cs
 D:\My project\Programming language\C#\Asernatat_3\obj\Debug\netcoreapp3.1\Razor\Views\Category\Create.cshtml.g.cs
 D:\My project\Programming language\C#\Asernatat_3\obj\Debug\netcoreapp3.1\Razor\Views\Category\Delete.cshtml.g.cs
-D:\My project\Programming language\C#\Asernatat_3\obj\Debug\netcoreapp3.1\Razor\Views\Category\Details.cshtml.g.cs
 D:\My project\Programming language\C#\Asernatat_3\obj\Debug\netcoreapp3.1\Razor\Views\Category\Edit.cshtml.g.cs
 D:\My project\Programming language\C#\Asernatat_3\obj\Debug\netcoreapp3.1\Razor\Views\Category\Index.cshtml.g.cs
 D:\My project\Programming language\C#\Asernatat_3\obj\Debug\netcoreapp3.1\Razor\Views\Art\Create.cshtml.g.cs
@@ -200,4 +199,6 @@ D:\My project\Programming language\C#\Asernatat_3\obj\Debug\netcoreapp3.1\Razor\
 D:\My project\Programming language\C#\Asernatat_3\obj\Debug\netcoreapp3.1\Razor\Views\Order\Index.cshtml.g.cs
 D:\My project\Programming language\C#\Asernatat_3\obj\Debug\netcoreapp3.1\Razor\Views\UserManagement\Edit.cshtml.g.cs
 D:\My project\Programming language\C#\Asernatat_3\obj\Debug\netcoreapp3.1\Razor\Views\UserManagement\Index.cshtml.g.cs
+D:\My project\Programming language\C#\Asernatat_3\obj\Debug\netcoreapp3.1\Razor\Views\Order\Delete.cshtml.g.cs
+D:\My project\Programming language\C#\Asernatat_3\obj\Debug\netcoreapp3.1\Razor\Views\Order\Details.cshtml.g.cs
 D:\My project\Programming language\C#\Asernatat_3\obj\Debug\netcoreapp3.1\Asernatat_3.csprojAssemblyReference.cache

@@ -9,15 +9,23 @@
     <link href="~/css/site.css" rel="stylesheet" />
     <link href="~/css/site.css" rel="stylesheet" />
     <link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <style>
-        body {
-            background-image: url("../img/miniFon.jpg");
-            background-color: #364534;
-        }
 
-        .footer-classic, .my-color {
+    <style>
+        .footer-classic {
             color: #ffffff;
             background: linear-gradient(to right, #1a423f, #1d2c2c);
+            position: absolute;
+            z-index: 1;
+            width: 100%;
+        }
+        .my-color {
+            color: #ffffff;
+            background: linear-gradient(to right, #1a423f, #1d2c2c);
+        }
+
+        .my-color-loggin {
+            color: #ffffff;
+            background: linear-gradient(to right, rgba(26, 66, 63, 0.75), rgba(29, 44, 44, 0.75));
         }
 
         .myy-colorr {
@@ -41,40 +49,13 @@
             color: #000000;
         }
 
-        .social-container .col {
-            border: 1px solid #315752;
-        }
-
         .col-my {
             color: #000000;
             border-color: #000000;
         }
-
-            .col-my:hover {
-                color: #57fbeb;
-                background-color: #1a3231;
-                border-color: #57fbeb;
-                transition: .59s ease;
-            }
-
             .col-my:focus {
                 box-shadow: 0 0 0 0.2rem rgba(064, 250, 233, 0.5);
             }
-
-            .col-my:disabled {
-                color: #000000;
-                background-color: transparent;
-            }
-
-            .col-my:not(:disabled):active {
-                color: #000000;
-                background-color: #315752;
-                border-color: #57fbeb;
-            }
-
-                .col-my:not(:disabled):active:focus {
-                    box-shadow: 0 0 0 0.2rem rgba(064, 250, 233, 0.5);
-                }
 
         .color-links {
             color: #000000 !important;
@@ -86,11 +67,53 @@
 
             .color-links:hover {
                 color: #57fbeb !important;
+                background-color: #1c3735;
+                transition: .59s ease;
+                box-shadow: 0 0 0 0.2rem rgba(064, 250, 233, 0.5);
             }
 
             .color-links:active {
                 color: #000000;
             }
+
+            .color-links:disabled {
+                color: #000000;
+                background-color: transparent;
+            }
+
+            .color-links:not(:disabled):active {
+                color: #000000;
+                background-color: #315752;
+                border-color: #57fbeb;
+            }
+
+                .color-links:not(:disabled):active:focus {
+                    box-shadow: 0 0 0 0.2rem rgba(064, 250, 233, 0.5);
+                }
+
+        .worlds {
+            color: #000000 !important;
+        }
+
+            .worlds:visited {
+                color: #000000;
+            }
+
+            .worlds:hover {
+                color: #57fbeb !important;
+                transition: .59s ease;
+                box-shadow: 0 0 0 0.2rem rgba(064, 250, 233, 0.5);
+            }
+
+            .worlds:not(:disabled):active {
+                color: #000000;
+                border-color: #57fbeb;
+            }
+
+                .worlds:not(:disabled):active:focus {
+                    box-shadow: 0 0 0 0.2rem rgba(064, 250, 233, 0.5);
+                }
+
 
         .btn-outline-mycolor {
             color: #57fbeb;
@@ -104,7 +127,7 @@
             }
 
             .btn-outline-mycolor.focus, .btn-outline-mycolor:focus {
-                box-shadow: 0 0 0 .2rem rgba(255,193,7,.5)
+                box-shadow: 0 0 0 .2rem rgba(87,251,235,.5)
             }
 
             .btn-outline-mycolor.disabled, .btn-outline-mycolor:disabled {
@@ -119,16 +142,101 @@
             }
 
                 .btn-outline-mycolor:not(:disabled):not(.disabled).active:focus, .btn-outline-mycolor:not(:disabled):not(.disabled):active:focus, .show > .btn-outline-mycolor.dropdown-toggle:focus {
-                    box-shadow: 0 0 0 .2rem rgba(255,193,7,.5)
+                    box-shadow: 0 0 0 .2rem rgba(87,251,235,.5)
                 }
+
+
+        .my-exampl {
+            color: #000000;
+        }
+
+            .my-exampl:hover {
+                color: #57fbeb !important;
+                transition: .59s ease;
+            }
+
+        .my-border {
+            border-color: black !important;
+            border-width: 3px !important;
+        }
+
+        .my-input {
+            background: linear-gradient(to right, #3d4c3a, #32462f);
+            color: black !important;
+            width: 100%;
+        }
+
+            .my-input:hover {
+                box-shadow: 0 0 0 0.1rem rgba(064, 250, 233, 0.5);
+            }
+
+        .my-image {
+            position: fixed;
+            z-index: -9999;
+            top: 0px;
+            left: 0px;
+        }
+
+        h4, h1, a, p, label {
+            color: black !important;
+        }
+
+        .text {
+            color: black !important;
+        }
+
+        .borderColor {
+            border-color: #000000 !important;
+        }
+
+
+        .coly {
+            margin: 20px;
+            border-color: black !important;
+            border-width: 3px !important;
+            border-radius: 4px;
+        }
+
+            .coly:visited {
+                color: #000000;
+                border-radius: 4px;
+            }
+
+            .coly:hover {
+                color: #57fbeb !important;
+                background-color: #1c3735;
+                transition: .59s ease;
+                box-shadow: 0 0 0 0.2rem rgba(064, 250, 233, 0.5);
+                border-radius: 4px;
+            }
+
+            .coly:active {
+                color: #000000;
+                border-radius: 4px;
+            }
+
+            .coly:disabled {
+                color: #000000;
+                background-color: transparent;
+                border-radius: 4px;
+            }
+
+            .coly:not(:disabled):active {
+                color: #000000;
+                background-color: #315752;
+                border-color: #57fbeb;
+                border-radius: 4px;
+            }
     </style>
+    <title>Rimmax</title>
 </head>
 <body>
+    <a class="my-image" href="#"><img src="~/img/miniFon.jpg" /></a>
     <a name="base"></a>
     <header class=" sticky-top">
-        <nav class="navbar navbar-expand-lg navbar-light sticky-top my-color" style="border-bottom: 1px solid black;">
-            <a class="navbar-brand b" asp-area="" asp-controller="Home" asp-action="Index">
-                <img src="#" class="rounded" width="100" height="60" alt="">
+        <nav class="navbar navbar-expand-lg navbar-light sticky-top my-color border-bottom my-border">
+            <a class="b" href="#">
+                <img src="~/img/RimmaxL.jpg" class="rounded-circle" width="100" height="60" alt="">
             </a>
             <button class="navbar-toggler btn btn-outline-mycolor" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -137,29 +245,47 @@
                 <div class="row justify-content-end mr-5">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item px-3 active">
-                            <a class="nav-link color-links" asp-area="" asp-controller="UserManagement" asp-action="Index">
-                                Home
+                            <a class="nav-link color-links border rounded my-border" style="margin-bottom: 10px" asp-area="" asp-controller="Home" asp-action="Index">
+                                <strong>
+                                    Home
+                                </strong>
                                 <span class="sr-only">
                                     (current)
                                 </span>
                             </a>
                         </li>
+                        @if (SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+                        {
+                            <li class="nav-item px-3">
+                                <a class="nav-link color-links border rounded my-border" style="margin-bottom: 10px" asp-area="" asp-controller="UserManagement" asp-action="Index">
+                                    <strong>
+                                        Roles
+                                    </strong>
+                                </a>
+                            </li>
+                        }
                         <li class="nav-item px-3">
-                            <a class="nav-link color-links" asp-area="" asp-controller="Category" asp-action="Index">
-                                Theme
+                            <a class="nav-link color-links border rounded my-border" style="margin-bottom: 10px" asp-area="" asp-controller="Category" asp-action="Index">
+                                <strong>
+                                    Theme
+                                </strong>
                             </a>
                         </li>
                         <li class="nav-item px-3">
                             @if (SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
                             {
-                                <a class="nav-link color-links" asp-area="" asp-controller="Order" asp-action="Index">
-                                    To order
+                                <a class="nav-link color-links border rounded my-border" style="margin-bottom: 10px" asp-area="" asp-controller="Order" asp-action="Index">
+                                    <strong>
+                                        To order
+                                    </strong>
                                 </a>
                             }
                             else
                             {
-                                <a class="nav-link color-links" asp-area="" asp-controller="Order" asp-action="Create">
-                                    To order
+                                <a class="nav-link color-links border rounded my-border" style="margin-bottom: 10px" asp-area="" asp-controller="Order" asp-action="Create">
+                                    <strong>
+                                        To order
+                                    </strong>
                                 </a>
                             }
                         </li>
@@ -173,53 +299,74 @@
     </header>
 
     <div class="container-fluid" style="min-height: 600px;">
-        <main role="main" class="row" style="position: center">
-            <div class="col-md-6 col-xl-4 a2"></div>
-            <div class="col-md-6 col-xl-4 a3 myy-colorr" style="min-height: 600px;border: 1px solid black;">
-                @RenderBody()
-            </div>
-            <div class="col-md-6 col-xl-4 a4"></div>
-        </main>
+        <div class="row">
+            @RenderBody()
+        </div>
     </div>
 
-    <footer class="section footer-classic context-dark text-black" style="border-top: 1px solid black;">
+    <footer class="section footer-classic context-dark border-top my-border text-black">
         <div class="container">
             <div class="row row-30 pt-3">
                 <div class="col-md-5 col-xl-6">
                     <div class="pr-xl-4">
-                        <a class="brand" href="#base"> <img class="brand-logo-light" src="#" alt="" width="140" height="37"> </a>
-                        <p>Text</p>
+                        <a class="brand" href="#base"> <img class="brand-logo-light" src="~/img/RimmaxL.jpg" alt="" width="150" height="90"> </a>
+                        <p class="text">Text</p>
                         <!-- Rights-->
                         <p class="rights">
-                            <span>©  </span><span class="copyright-year">2020</span><span> </span><span>Waves</span><span>. </span><span>All Rights Reserved.</span><br>
+                            <span class="text">©  </span>
+                            <span class="copyright-year text">2020</span>
+                            <span> </span>
+                            <span class="text">Waves</span>
+                            <span class="text">. </span>
+                            <span class="text">All Rights Reserved.</span><br>
                             &copy; 2020 - Asernatat_3 - <a class="color-links" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </p>
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <h5>Contacts</h5>
+                    <h5 class="text">Contacts</h5>
                     <dl class="contact-list">
-                        <dt>Address:</dt>
-                        <dd>exampl_address</dd>
+                        <dt class="text">Address:</dt>
+                        <dd class="text">exampl_address</dd>
                     </dl>
                     <dl class="contact-list">
-                        <dt>email:</dt>
-                        <dd><a class="color-links" href="mailto:#">exampl_e-mail@mail.ru</a></dd>
+                        <dt class="text">email:</dt>
+                        <dd><a class="my-exampl" href="mailto:#">exampl_e-mail@mail.ru</a></dd>
                     </dl>
                     <dl class="contact-list">
-                        <dt>phones:</dt>
+                        <dt class="text">phones:</dt>
                         <dd>
-                            <a class="color-links" href="tel:#">exampl_phone1</a> <span><br></span> <a class="color-links" href="tel:#">exampl_phone2</a>
+                            <a class="my-exampl" href="tel:#">exampl_phone1</a> <span><br></span> <a class="my-exampl" href="tel:#">exampl_phone2</a>
                         </dd>
                     </dl>
                 </div>
             </div>
         </div>
-        <div class="row no-gutters social-container">
-            <div class="col"><a class="social-inner col-my" href="#"><span class="icon mdi mdi-facebook"></span><span>Facebook</span></a></div>
-            <div class="col"><a class="social-inner col-my" href="#"><span class="icon mdi mdi-instagram"></span><span>instagram</span></a></div>
-            <div class="col"><a class="social-inner col-my" href="#"><span class="icon mdi mdi-twitter"></span><span>twitter</span></a></div>
-            <div class="col"><a class="social-inner col-my" href="#"><span class="icon mdi mdi-youtube-play"></span><span>google</span></a></div>
+        <div class="row no-gutters">
+            <div class="col coly border">
+                <a class="social-inner col-my my-exampl" href="#">
+                    <span class="icon mdi mdi-facebook"></span>
+                    <span>Facebook</span>
+                </a>
+            </div>
+            <div class="col coly border">
+                <a class="social-inner col-my my-exampl" href="#">
+                    <span class="icon mdi mdi-instagram"></span>
+                    <span>instagram</span>
+                </a>
+            </div>
+            <div class="col coly border">
+                <a class="social-inner col-my my-exampl" href="#">
+                    <span class="icon mdi mdi-twitter"></span>
+                    <span>twitter</span>
+                </a>
+            </div>
+            <div class="col coly border">
+                <a class="social-inner col-my my-exampl" href="#">
+                    <span class="icon mdi mdi-youtube-play"></span>
+                    <span>google</span>
+                </a>
+            </div>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
@@ -228,3 +375,4 @@
     @RenderSection("Scripts", required: false)
 </body>
 </html>
+

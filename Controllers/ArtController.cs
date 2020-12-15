@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Asernatat_3.Data;
 using Asernatat_3.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Asernatat_3.Controllers
 {
@@ -28,26 +29,16 @@ namespace Asernatat_3.Controllers
         }
 
         // GET: Art/Details/5
-        public async Task<IActionResult> Details(Guid? id)
+        public ActionResult Details(Guid id, Guid cid)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var art = await context.Arts
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (art == null)
-            {
-                return NotFound();
-            }
-
-            return View(art);
+            ViewData["CatId"] = cid;
+            return View(context.Arts.Where(item => item.Id == id).First());
         }
 
         // GET: Art/Create
-        public ActionResult Create(Guid? id = null)
+        public ActionResult Create(Guid? id)
         {
+            ViewData["CatId"] = id;
             return View();
         }
 
@@ -56,7 +47,7 @@ namespace Asernatat_3.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection, Guid? cid = null)
+        public ActionResult Create(IFormCollection collection, Guid? id = null)
         {
             try
             {
@@ -64,7 +55,7 @@ namespace Asernatat_3.Controllers
                 string img = collection["Img"];
                 string name = collection["Name"];
                 string description = collection["Description"];
-                var catForProd = context.Categories.Where(item => item.Id == cid).First();
+                var catForProd = context.Categories.Where(item => item.Id == id).First();
                 Art newItem = new Art
                 {
                     Img = img,
@@ -75,30 +66,22 @@ namespace Asernatat_3.Controllers
                 };
                 context.Arts.Add(newItem);
                 context.SaveChanges();
-                return RedirectToAction(nameof(Index), new {CatId = cid });
+                return RedirectToAction(nameof(Index), new {id = id });
 
             }
-            catch /*(Exception Error)*/
+            catch (Exception Error)
             {
 
-                return View(/*Error*/);
+                return View(Error);
             }
         }
 
         // GET: Art/Edit/5
-        public async Task<IActionResult> Edit(Guid? id)
+        [Authorize(Roles = "Admin, Staff")]
+        public ActionResult Edit(Guid id, Guid cid)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var art = await context.Arts.FindAsync(id);
-            if (art == null)
-            {
-                return NotFound();
-            }
-            return View(art);
+            ViewData["CatId"] = cid;
+            return View(context.Arts.Where(item => item.Id == id).First());
         }
 
         // POST: Art/Edit/5
@@ -106,68 +89,54 @@ namespace Asernatat_3.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(Guid id, [Bind("Id,Name,Description,Img")] Art art)
+        [Authorize(Roles = "Admin, Staff")]
+        public ActionResult Edit(Guid id, Guid cid, IFormCollection collection)
         {
-            if (id != art.Id)
+            try
             {
-                return NotFound();
+                // TODO: Add update logic here
+                string img = collection["Img"];
+                string name = collection["Name"];
+                string description = collection["Description"];
+                var itemToEdit = context.Arts.Where(item => item.Id == id).First();
+                itemToEdit.Name = name;
+                itemToEdit.Description = description;
+                itemToEdit.Img = img;
+                context.SaveChanges();
+                return RedirectToAction(nameof(Index), new { id = cid });
             }
-
-            if (ModelState.IsValid)
+            catch
             {
-                try
-                {
-                    context.Update(art);
-                    await context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!ArtExists(art.Id))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
+                return View();
             }
-            return View(art);
         }
 
         // GET: Art/Delete/5
-        public async Task<IActionResult> Delete(Guid? id)
+        [Authorize(Roles = "Admin, Staff")]
+        public ActionResult Delete(Guid id, Guid cid)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var art = await context.Arts
-                .FirstOrDefaultAsync(m => m.Id == id);
-            if (art == null)
-            {
-                return NotFound();
-            }
-
-            return View(art);
+            ViewData["CatId"] = cid;
+            return View(context.Arts.Where(item => item.Id == id).First());
         }
 
         // POST: Art/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(Guid id)
+        [Authorize(Roles = "Admin, Staff")]
+        public ActionResult Delete(Guid id, Guid cid, IFormCollection collection)
         {
-            var art = await context.Arts.FindAsync(id);
-            context.Arts.Remove(art);
-            await context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
-
-        private bool ArtExists(Guid id)
-        {
-            return context.Arts.Any(e => e.Id == id);
+            try
+            {
+                // TODO: Add delete logic here
+                Art itemToDelete = context.Arts.Where(item => item.Id == id).First();
+                context.Arts.Remove(itemToDelete);
+                context.SaveChanges();
+                return RedirectToAction(nameof(Index), new { id = cid });
+            }
+            catch
+            {
+                return View();
+            }
         }
     }
 }

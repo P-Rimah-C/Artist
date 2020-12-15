@@ -1,34 +1,52 @@
+
 @model Asernatat_3.Models.Category
 
 @{
     ViewData["Title"] = "Edit";
 }
+<div class="col" style="max-width: 50%"></div>
+<div class="col" style=" min-width: 350px; min-height: 530px; margin-top: 35px">
+    <div class="my-color-loggin border rounded my-border container-fluid" style="z-index: -20;">
+        <div class="my-4 mx-3">
+            <div class="d-flex justify-content-center">
+                <section class="mx-4 mt-2">
+                    <h1>Edit</h1>
 
-<h1>Edit</h1>
+                    <h4>Category</h4>
+                    <div class="row">
+                        <div>
+                            <form asp-action="Edit">
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                <input type="hidden" asp-for="Id" />
+                                <div class="form-group">
+                                    <label asp-for="Name" class="control-label"></label>
+                                    <input asp-for="Name" class="form-control" />
+                                    <span asp-validation-for="Name" class="text-danger"></span>
+                                </div>
+                                <div class="row">
+                                    <div class="col" style="max-width: 50%"></div>
+                                    <div class="col" style="min-width: 175px">
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-primary  color-links border rounded my-border" style="background-color: #4682B4; width: 150px;">Save</button>
+                                        </div>
+                                    </div>
+                                    <div class="col" style="max-width: 50%"></div>
+                                </div>
 
-<h4>Category</h4>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="Id" />
-            <div class="form-group">
-                <label asp-for="Name" class="control-label"></label>
-                <input asp-for="Name" class="form-control" />
-                <span asp-validation-for="Name" class="text-danger"></span>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div>
+                        <a class="my-exampl" asp-action="Index">Back to List</a>
+                    </div>
+
+                    @section Scripts {
+                        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+                    }
+                </section>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
+        </div>
 </div>
-
-<div>
-    <a asp-action="Index">Back to List</a>
 </div>
-
-@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}
+<div class="col" style="max-width: 50%"></div>

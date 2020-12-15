@@ -28,6 +28,12 @@ namespace Asernatat_3.Controllers
             return View(await context.Orders.ToListAsync());
         }
 
+        // GET: Order/Details/5
+        public ActionResult Details()
+        {
+            return View();
+        }
+
         // GET: Order/Create
         [Authorize]
         public IActionResult Create()
@@ -59,13 +65,40 @@ namespace Asernatat_3.Controllers
                 };
                 context.Orders.Add(newItem);
                 context.SaveChanges();
-                return RedirectToAction(nameof(Index), nameof(HomeController));
+                return RedirectToAction(nameof(Details));
 
             }
-            catch /*(Exception Error)*/
+            catch/* (Exception Error)*/
             {
 
                 return View(/*Error*/);
+            }
+        }
+
+        // GET: Order/Delete
+        [Authorize(Roles = "Admin, Staff")]
+        public ActionResult Delete(Guid id)
+        {
+            return View(context.Orders.Where(item => item.Id == id).First());
+        }
+
+        // POST: Items/Delete
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        [Authorize(Roles = "Admin, Staff")]
+        public ActionResult Delete(Guid id, IFormCollection collection)
+        {
+            try
+            {
+                // TODO: Add delete logic here
+                Order itemToDelete = context.Orders.Where(item => item.Id == id).First();
+                context.Orders.Remove(itemToDelete);
+                context.SaveChanges();
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
             }
         }
 

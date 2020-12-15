@@ -4,51 +4,58 @@
 @{
     ViewData["Title"] = "Index";
 }
-
-<h1>Index</h1>
-
-
-@if (SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
-{
-    <p><a asp-action="Create" asp-route-cid="@ViewData["CatId"]">Create New</a></p>
-}
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Img)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Description)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Img)
-                </td>
-                <td>
-                    @if (SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+<div class="col" style="max-width: 20%"></div>
+<div class="col myy-colorr border-left border-right my-border" style="max-width: 60%; min-height: 600px;">
+    <div class="row">
+        <div class="col m-3">
+            @if (SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+            {
+                <p><a class="my-exampl text-decoration-none" asp-action="Create" asp-route-id="@ViewData["CatId"]">Create New</a></p>
+            }
+            <div>
+                @if (Model.Any())
+                {
+                    @foreach (var item in Model)
                     {
-                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> <span>|</span>
-                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> <span>|</span>
-                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a> <span>|</span>
+                        <div class="col border rounded my-border worlds m-2" style="color: #000000 !important;">
+                            <h1 class="text-center" style="font-size: 150%;">@Html.DisplayFor(modelItem => item.Name)</h1>
+                            <hr class="mt-0" />
+                            <div class="row no-gutters">
+                                <div class="col home" style="margin: 10px; min-width: 240px;">
+                                    <a class="b col-my" href="#">
+                                        <img src="@*@Html.DisplayFor(modelItem => item.Img)*@" class="rounded-circle" width="100" height="60" alt="">
+                                    </a>
+                                </div>
+                                <div class="col home" style="margin: 10px; min-width: 240px;">
+                                    <div class="col-my text-decoration-none" href="#">
+                                        <p>@Html.DisplayFor(modelItem => item.Description)</p>
+                                    </div>
+                                </div>
+                            </div>
+                            @if (SignInManager.IsSignedIn(User) && User.IsInRole("Admin"))
+                            {<table class="table table-borderless">
+                                    <tr>
+                                        <td>
+                                            <div class="float-right">
+                                                <a class="my-exampl" asp-action="Edit" asp-route-id="@item.Id" asp-route-cid="@ViewData["CatId"]">Edit</a> <span>|</span>
+                                                <a class="my-exampl" asp-action="Details" asp-route-id="@item.Id" asp-route-cid="@ViewData["CatId"]">Details</a> <span>|</span>
+                                                <a class="my-exampl" asp-action="Delete" asp-route-id="@item.Id" asp-route-cid="@ViewData["CatId"]">Delete</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            }
+                        </div>
                     }
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+                }
+                else
+                {
+                    <h3>No items matching your query</h3>
+
+                }
+            </div>
+            <p><a class="my-exampl text-decoration-none" asp-controller="Category" asp-action="Index">Back to List</a></p>
+        </div>
+    </div>
+</div>
+<div class="col" style="max-width: 20%"></div>

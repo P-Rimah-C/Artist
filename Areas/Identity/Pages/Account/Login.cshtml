@@ -1,50 +1,63 @@
 ﻿@page
 @model LoginModel
-<div class="mt-4 mx-3">
-    @{
-        ViewData["Title"] = "Log in";
-    }
+@{
+    ViewData["Title"] = "Log in";
+}
+<div class="col" style="max-width: 50%"></div>
+<div class="col" style=" min-width: 350px; min-height: 530px; margin-top: 35px">
+    <div class="my-color-loggin border rounded my-border container-fluid" style="z-index: -20;">
+        <div class="my-4 mx-3">
+            <div class="d-flex justify-content-center">
 
-    <h1>@ViewData["Title"]</h1>
-    <div class="row">
-        <section>
-            <form id="account" method="post">
-                <h4>Use a local account to log in.</h4>
-                <hr />
-                <div asp-validation-summary="All" class="text-danger"></div>
-                <div class="form-group">
-                    <label asp-for="Input.Email"></label>
-                    <input asp-for="Input.Email" class="form-control" />
-                    <span asp-validation-for="Input.Email" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <label asp-for="Input.Password"></label>
-                    <input asp-for="Input.Password" class="form-control" />
-                    <span asp-validation-for="Input.Password" class="text-danger"></span>
-                </div>
-                <div class="form-group">
-                    <div class="checkbox">
-                        <label asp-for="Input.RememberMe">
-                            <input asp-for="Input.RememberMe" />
-                            @Html.DisplayNameFor(m => m.Input.RememberMe)
-                        </label>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Log in</button>
-                </div>
-                <div class="form-group">
-                    <p>
-                        <a id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a>
-                    </p>
-                    <p>
-                        <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
-                    </p>
-                </div>
-            </form>
-        </section>
+                <section class="mx-4 mt-2">
+                    <form id="account" method="post">
+                        <h4>Use a local account to log in.</h4>
+                        <div asp-validation-summary="All" class="text-danger"></div>
+                        <div class="form-group">
+                            <label asp-for="Input.Email"></label>
+                            <input asp-for="Input.Email" class="form-control my-border" />
+                            <span asp-validation-for="Input.Email" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Input.Password"></label>
+                            <input asp-for="Input.Password" class="form-control my-border" />
+                            <span asp-validation-for="Input.Password" class="text-danger"></span>
+                        </div>
+                        <div style="height: 25px"></div>
+                        <div class="form-group">
+                            <div class="checkbox">
+                                <label asp-for="Input.RememberMe">
+                                    <input asp-for="Input.RememberMe" class="my-border" />
+                                    @Html.DisplayNameFor(m => m.Input.RememberMe)
+                                </label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col" style="max-width: 50%"></div>
+                            <div class="col" style="min-width: 175px">
+                                <div class="form-group">
+                                    <button type="submit" class="btn btn-primary  color-links border rounded my-border" style="background-color: #4682B4; width: 150px;">Log in</button>
+                                </div>
+                            </div>
+                            <div class="col" style="max-width: 50%"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="row">
+                                <div class="col"><a class="float-left my-exampl" id="forgot-password" asp-page="./ForgotPassword">Forgot your password?</a></div>
+                                <div class="col"><a class="float-right my-exampl" asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Registration</a></div>
+                            </div>
+                        </div>
+
+
+                    </form>
+                </section>
+            </div>
+        </div>
     </div>
+
 </div>
+<div class="col" style="max-width: 50%"></div>
 @section Scripts {
     <partial name="_ValidationScriptsPartial" />
 }

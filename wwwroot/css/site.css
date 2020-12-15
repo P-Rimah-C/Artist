@@ -1,18 +1,16 @@
-﻿body {
-    background-image: url("../img/miniFon.jpg");
-}
-
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+/*#507c50*/
 .footer-classic, .my-color {
     color: #ffffff;
     background: linear-gradient(to right, #1a423f, #1d2c2c);
+    position: absolute;
+    z-index: 1px;
+    width: 100%;
 }
 
 .myy-colorr {
     background: linear-gradient(to right, #364534, #2c3f2a);
-}
-
-.borderColor {
-    border-color: #000000 !important;
 }
 
 ul, ol {
@@ -32,40 +30,12 @@ ul, ol {
     color: #000000;
 }
 
-.social-container .col {
-    border: 1px solid #315752;
-}
-
 .col-my {
-    color: #000000;
-    border-color: #000000;
 }
-
-    .col-my:hover {
-        color: #57fbeb;
-        background-color: #1a3231;
-        border-color: #57fbeb;
-        transition: .59s ease;
-    }
 
     .col-my:focus {
         box-shadow: 0 0 0 0.2rem rgba(064, 250, 233, 0.5);
     }
-
-    .col-my:disabled {
-        color: #000000;
-        background-color: transparent;
-    }
-
-    .col-my:not(:disabled):active {
-        color: #000000;
-        background-color: #315752;
-        border-color: #57fbeb;
-    }
-
-        .col-my:not(:disabled):active:focus {
-            box-shadow: 0 0 0 0.2rem rgba(064, 250, 233, 0.5);
-        }
 
 .color-links {
     color: #000000 !important;
@@ -77,11 +47,30 @@ ul, ol {
 
     .color-links:hover {
         color: #57fbeb !important;
+        background-color: #1c3735;
+        transition: .59s ease;
+        box-shadow: 0 0 0 0.2rem rgba(064, 250, 233, 0.5);
     }
 
     .color-links:active {
         color: #000000;
     }
+
+    .color-links:disabled {
+        color: #000000;
+        background-color: transparent;
+    }
+
+    .color-links:not(:disabled):active {
+        color: #000000;
+        background-color: #315752;
+        border-color: #57fbeb;
+    }
+
+        .color-links:not(:disabled):active:focus {
+            box-shadow: 0 0 0 0.2rem rgba(064, 250, 233, 0.5);
+        }
+
 
 .btn-outline-mycolor {
     color: #57fbeb;
@@ -111,4 +100,87 @@ ul, ol {
 
         .btn-outline-mycolor:not(:disabled):not(.disabled).active:focus, .btn-outline-mycolor:not(:disabled):not(.disabled):active:focus, .show > .btn-outline-mycolor.dropdown-toggle:focus {
             box-shadow: 0 0 0 .2rem rgba(255,193,7,.5)
+        }
+
+
+.my-exampl {
+    color: #000000;
+}
+
+    .my-exampl:hover {
+        color: #57fbeb !important;
+        transition: .59s ease;
+    }
+
+.my-border {
+    border-color: black !important;
+    border-width: 3px !important;
+}
+
+.my-input {
+    background: linear-gradient(to right, #3d4c3a, #32462f);
+    color: black !important;
+    width: 100%;
+}
+
+    .my-input:hover {
+        box-shadow: 0 0 0 0.1rem rgba(064, 250, 233, 0.5);
+    }
+
+.my-image {
+    position: fixed;
+    z-index: -9999;
+    top: 0px;
+    left: 0px;
+}
+
+h4, h1, a, p, label {
+    color: black !important;
+}
+
+.text {
+    color: black !important;
+}
+
+.borderColor {
+    border-color: #000000 !important;
+}
+
+.coly {
+    margin-left: 40px;
+    margin-right: 40px;
+    margin-bottom: 10px;
+    border-color: black !important;
+    border-width: 3px !important;
+    border-radius: 4px;
+}
+
+    .coly:visited {
+        color: #000000;
+    }
+
+    .coly:hover {
+        color: #57fbeb !important;
+        background-color: #1c3735;
+        transition: .59s ease;
+        box-shadow: 0 0 0 0.2rem rgba(064, 250, 233, 0.5);
+    }
+
+    .coly:active {
+        color: #000000;
+    }
+
+    .coly:disabled {
+        color: #000000;
+        background-color: transparent;
+    }
+
+    .coly:not(:disabled):active {
+        color: #000000;
+        background-color: #315752;
+        border-color: #57fbeb;
+    }
+
+        .coly:not(:disabled):active:focus {
+            box-shadow: 0 0 0 0.2rem rgba(064, 250, 233, 0.5);
         }

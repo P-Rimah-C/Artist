@@ -2,14 +2,33 @@
 @model IEnumerable<IdentityUser>
 @{
 }
-<table class="table">
-    @foreach(var user in Model)
-    {
-        <tr>
-            <td>@user.Email</td>
-            <td>
-                <a class="btn btn-danger" asp-action="Edit" asp-route-id="@user.Id">Edit</a>
-            </td>
-        </tr>
-    }
-</table>
+<div class="col" style="max-width: 20%"></div>
+<div class="col myy-colorr border-left border-right my-border" style="max-width: 60%; min-height: 600px;">
+    <div class="row">
+        <div class="col m-3">
+            <div>
+                <div class="row no-gutters">
+
+                    <table class="table table-borderless">
+                        @foreach (var user in Model)
+                        {
+
+                            <tr class="border-top" style="border-color: black !important;">
+                                <td>
+                                    <a class="float-left">@user.Email</a>
+                                </td>
+                                <td>
+                                    <a class="my-exampl float-right border rounded my-border worlds" style=" padding-right: 10px; padding-left: 10px; padding-top: 5px; padding-bottom: 5px;" asp-action="Edit" asp-route-id="@user.Id">Edit</a>
+                                </td>
+
+                            </tr>
+
+
+
+                        }
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
