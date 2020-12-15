@@ -202,3 +202,9 @@ D:\My project\Programming language\C#\Asernatat_3\obj\Debug\netcoreapp3.1\Razor\
 D:\My project\Programming language\C#\Asernatat_3\obj\Debug\netcoreapp3.1\Razor\Views\Order\Delete.cshtml.g.cs
 D:\My project\Programming language\C#\Asernatat_3\obj\Debug\netcoreapp3.1\Razor\Views\Order\Details.cshtml.g.cs
 D:\My project\Programming language\C#\Asernatat_3\obj\Debug\netcoreapp3.1\Asernatat_3.csprojAssemblyReference.cache
+D:\My project\Programming language\C#\Asernatat_3\bin\Debug\netcoreapp3.1\System.Web.Razor.dll
+D:\My project\Programming language\C#\Asernatat_3\bin\Debug\netcoreapp3.1\System.Web.Helpers.dll
+D:\My project\Programming language\C#\Asernatat_3\bin\Debug\netcoreapp3.1\System.Web.WebPages.Deployment.dll
+D:\My project\Programming language\C#\Asernatat_3\bin\Debug\netcoreapp3.1\System.Web.WebPages.Razor.dll
+D:\My project\Programming language\C#\Asernatat_3\bin\Debug\netcoreapp3.1\System.Web.WebPages.dll
+D:\My project\Programming language\C#\Asernatat_3\bin\Debug\netcoreapp3.1\Microsoft.Web.Infrastructure.dll
