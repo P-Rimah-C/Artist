@@ -112,15 +112,15 @@ namespace Asernatat_3
                 }
             }
 
-            await userManager.DeleteAsync(await userManager.FindByEmailAsync("amir98327o@mail.ru"));
+            await userManager.DeleteAsync(await userManager.FindByEmailAsync("anna.belaya0@gmail.com"));
 
             var user = new IdentityUser
             {
-                UserName = "amir98327o@mail.ru",
-                Email = "amir98327o@mail.ru",
+                UserName = "anna.belaya0@gmail.com",
+                Email = "anna.belaya0@gmail.com",
             };
 
-            var password = "Rimah_12131";
+            var password = "Amir2002!";
 
             var result = await userManager.CreateAsync(user, password);
             if (result.Succeeded)

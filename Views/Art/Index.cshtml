@@ -22,9 +22,9 @@
                             <hr class="mt-0" />
                             <div class="row no-gutters">
                                 <div class="col home" style="margin: 10px; min-width: 240px;">
-                                    <a class="b col-my" href="#">
-                                        <img src="@*@Html.DisplayFor(modelItem => item.Img)*@" class="rounded-circle" width="100" height="60" alt="">
-                                    </a>
+                                    <div class="b col-my text-center" href="#">
+                                        <img src="~/img/@Html.DisplayFor(modelItem => item.Img)" width="250" height="250" class="rounded" alt="">
+                                    </div>
                                 </div>
                                 <div class="col home" style="margin: 10px; min-width: 240px;">
                                     <div class="col-my text-decoration-none" href="#">
@@ -38,7 +38,6 @@
                                         <td>
                                             <div class="float-right">
                                                 <a class="my-exampl" asp-action="Edit" asp-route-id="@item.Id" asp-route-cid="@ViewData["CatId"]">Edit</a> <span>|</span>
-                                                <a class="my-exampl" asp-action="Details" asp-route-id="@item.Id" asp-route-cid="@ViewData["CatId"]">Details</a> <span>|</span>
                                                 <a class="my-exampl" asp-action="Delete" asp-route-id="@item.Id" asp-route-cid="@ViewData["CatId"]">Delete</a>
                                             </div>
                                         </td>
